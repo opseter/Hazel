@@ -1,3 +1,5 @@
+//Basic Texture Shader
+
 #type vertex
 #version 330 core
 
@@ -7,7 +9,6 @@ layout(location = 1) in vec2 a_TexCoord;
 uniform mat4 u_ViewProjection;
 uniform mat4 u_Transform;	
 
-out vec3 v_Position;
 out vec2 v_TexCoord;
 				
 void main()
@@ -22,13 +23,12 @@ void main()
 
 layout(location = 0) out vec4 color;
 
-in vec3 v_Position;
 in vec2 v_TexCoord;
 
 uniform sampler2D u_Texture;
 
 void main()
 {
-	color = texture(u_Texture,v_TexCoord);
+	color = texture(u_Texture, v_TexCoord * 10.0) * vec4(1.0, 0.6, 0.3, 1.0);
 }
 	

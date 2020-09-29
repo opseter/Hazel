@@ -18,7 +18,7 @@ namespace Hazel {
 	{
 
 	public:
-		static Texture2D* Create(const std::string& path);
+		static Ref<Texture2D> Create(const std::string& path);
 
 	};
 }

@@ -5,6 +5,7 @@
 // -----------------------------------
 
 #include"Platform/OpenGL/OpenGLShader.h"
+#include"Platform/OpenGL/OpenGLTexture.h"
 
 #include "imgui/imgui.h"
 #include<glm/gtc/matrix_transform.hpp>
@@ -131,8 +132,8 @@ public:
 		m_FlatColorShader = Hazel::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 		auto textureShader = m_ShderLibrary.Load("assets/shaders/Texture.glsl");
 
-		m_Texture.reset(Hazel::Texture2D::Create("assets/textures/Checkerboard.png"));
-		m_ChernoLogoTexture.reset(Hazel::Texture2D::Create("assets/textures/ChernoLogo.png"));
+		m_Texture=std::make_shared<Hazel::OpenGLTexture2D>("assets/textures/Checkerboard.png");
+		m_ChernoLogoTexture=std::make_shared<Hazel::OpenGLTexture2D>("assets/textures/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<Hazel::OpenGLShader>(textureShader)->Bind();
 		std::dynamic_pointer_cast<Hazel::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
