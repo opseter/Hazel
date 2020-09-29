@@ -2,6 +2,7 @@
 #include"Hazel/Renderer/GraphicsContext.h"
 
 struct GLFWwindow;
+
 namespace Hazel {
 	class OpenGLContext :public GraphicsContext
 	{

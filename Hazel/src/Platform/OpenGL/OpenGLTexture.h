@@ -1,7 +1,11 @@
 #pragma once
 
 
-#include"Hazel/Renderer/Texture.h"
+#include "Hazel/Renderer/Texture.h"
+
+
+
+typedef unsigned int GLenum;
 
 namespace Hazel {
 	
@@ -9,15 +13,21 @@ namespace Hazel {
 	{
 	public:
 		OpenGLTexture2D(const std::string& path);
+		OpenGLTexture2D(uint32_t width, uint32_t height);
+		virtual void SetData(void* data, uint32_t size) override;
+
 		virtual ~OpenGLTexture2D();
 		virtual uint32_t GetWidth() const override { return m_Width; };
 		virtual uint32_t GetHeight() const override { return m_Height; };
 
 		virtual void Bind(uint32_t slot = 0) const override;
+		
 	private:
 		uint32_t m_Width, m_Height;
 		uint32_t m_RendererID;
 		std::string m_Path;
+		GLenum m_InternalFormat, m_DataFormat;
+
 	};
 
 }

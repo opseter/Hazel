@@ -16,8 +16,8 @@ namespace Hazel {
 			return GL_VERTEX_SHADER;
 		if (type == "fragment" || type == "pixel")
 			return GL_FRAGMENT_SHADER;
-		HZ_CORE_ASSERT(false,"Unkown shader type !")
-	
+		HZ_CORE_ASSERT(false, "Unkown shader type !")
+			//return 0;
 	}
 
 	OpenGLShader::OpenGLShader(const std::string& filepath)
@@ -209,7 +209,7 @@ namespace Hazel {
 			}
 			glAttachShader(program, shader);
 			//glShaderIDs.push_back(shader);
-			glShaderIDs[glShaderIDIndex++] == shader;
+			glShaderIDs[glShaderIDIndex++] = shader;
 		}	
 		m_RendererID = program;
 

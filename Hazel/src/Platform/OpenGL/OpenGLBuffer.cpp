@@ -2,6 +2,7 @@
 #include"OpenGLBuffer.h"
 
 #include<glad/glad.h>
+
 namespace Hazel {
 	/// <summary>
 	/// </summary>
