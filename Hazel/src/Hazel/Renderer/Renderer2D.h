@@ -1,6 +1,6 @@
 #pragma once
-#include "OrthographicCamera.h"
-#include "Texture.h"
+#include "Hazel/Renderer/OrthographicCamera.h"
+#include "Hazel/Renderer/Texture.h"
 
 namespace Hazel {
 
@@ -9,7 +9,7 @@ namespace Hazel {
 
 	public:
 		static void Init();
-		static void Shudown();
+		static void Shutdown();
 
 		static void BeginScene(const OrthographicCamera& camera);
 		static void EndScene();

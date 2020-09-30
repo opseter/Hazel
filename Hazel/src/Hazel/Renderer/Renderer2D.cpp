@@ -1,9 +1,9 @@
-#include"hzpch.h"
+#include "hzpch.h"
+#include "Hazel/Renderer/Renderer2D.h"
 
-#include "Renderer2D.h"
-#include"RenderCommand.h"
-#include"VertexArray.h"
-#include"Shader.h"
+#include "Hazel/Renderer/VertexArray.h"
+#include "Hazel/Renderer/Shader.h"
+#include "Hazel/Renderer/RenderCommand.h"
 
 #include<glm/gtx/transform.hpp>
 
@@ -53,7 +53,7 @@ namespace Hazel {
 		s_Data->TextureShader->SetInt("u_Texture", 0);
 	}
 
-	void Renderer2D::Shudown()
+	void Renderer2D::Shutdown()
 	{
 		delete s_Data;
 	}

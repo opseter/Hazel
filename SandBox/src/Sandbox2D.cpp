@@ -1,6 +1,6 @@
 #pragma once
 #include "Sandbox2D.h"
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 #include "Hazel/Renderer/Renderer2D.h"
 #include <glm/gtc/type_ptr.hpp>
 #include "Platform/OpenGL/OpenGLShader.h"
