@@ -19,6 +19,8 @@ namespace Hazel {
 
 	void Renderer2D::Init()
 	{
+		HZ_PROFILE_FUNCTION();
+
 		s_Data = new Renderer2DStorage();
 		s_Data->QuadVertexArray = VertexArray::Create();
 
@@ -64,17 +66,19 @@ namespace Hazel {
 
 	void Renderer2D::EndScene()
 	{
+		HZ_PROFILE_FUNCTION();
 
 	}
 
 	void Renderer2D::DrawQuard(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color)
-	{	
+	{
 		DrawQuard({ position.x,position.y,0.0f }, size, color);
 	}
 
 	void Renderer2D::DrawQuard(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color)
 	{
-		
+		HZ_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", color);
 		//Bind white texture
 		s_Data->WhiteTexture->Bind();
@@ -93,6 +97,8 @@ namespace Hazel {
 
 	void Renderer2D::DrawQuard(const glm::vec3& position, const glm::vec2& size, Ref<Texture>& texture)
 	{
+		HZ_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", glm::vec4(1.0f));
 		texture->Bind();
 

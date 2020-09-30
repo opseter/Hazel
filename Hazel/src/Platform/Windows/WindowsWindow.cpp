@@ -20,11 +20,13 @@ namespace Hazel {
 
 	Window* Window::Create(const WindowProps& props)
 	{
+		HZ_PROFILE_FUNCTION ();
 		return new WindowsWindow(props);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+
 		Init(props);
 	}
 
@@ -152,11 +154,14 @@ namespace Hazel {
 
 	void WindowsWindow::Shutdown()
 	{
+		HZ_PROFILE_FUNCTION();
 		glfwDestroyWindow(m_Window);
 	}
 
 	void WindowsWindow::OnUpdate()
 	{
+		HZ_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 		
@@ -164,6 +169,8 @@ namespace Hazel {
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		HZ_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else
