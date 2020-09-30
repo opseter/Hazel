@@ -4,7 +4,7 @@
 #include "Renderer2D.h"
 namespace Hazel {
 
-	Renderer::SceneData* Renderer::m_ScenData = new Renderer::SceneData;
+	Scope<Renderer::SceneData> Renderer::m_ScenData =  CreateScope<Renderer::SceneData>();
 
 	void Renderer::BeginScene(OrthographicCamera& camera )//once you kown all the thing of the scene ,you can do some optmision
 	{
