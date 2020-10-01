@@ -7,11 +7,11 @@
 #include "Hazel/Core/Layer.h"
 #include "Hazel/Core/Log.h"
 
-#include "Hazel/Core/TimeStep.h"
+#include "Hazel/Core/Timestep.h"
 
 #include "Hazel/Core/Input.h"
 #include "Hazel/Core/KeyCodes.h"
-#include "Hazel/Core/MouseButtonCodes.h"
+#include "Hazel/Core/MouseCodes.h"
 
 #include "Hazel/ImGui/ImGuiLayer.h"
 // ---Renderer ---------------------

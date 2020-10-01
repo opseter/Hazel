@@ -5,9 +5,9 @@
 #include "Hazel/Renderer/Renderer.h"
 
 #include "Hazel/Core/Input.h"
-#include "Hazel/Core/TimeStep.h"
+#include "Hazel/Core/Timestep.h"
 
-#include <glfw/glfw3.h>
+#include <GLFW/glfw3.h>
 
 namespace Hazel {
 
@@ -59,9 +59,9 @@ namespace Hazel {
 		dispatcher.Dispatch<WindowCloseEvent>(HZ_BIND_EVENT_FN(Application::OnWindowClose));
 		dispatcher.Dispatch<WindowResizeEvent>(HZ_BIND_EVENT_FN(Application::OnWindowResize));
 
-		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend();++it )
 		{
-			(*--it)->OnEvent(e);
+			(*it)->OnEvent(e);
 			if (e.Handled)
 				break;
 		}
@@ -74,7 +74,7 @@ namespace Hazel {
 		while (m_Running)
 		{		
 			float time = (float)glfwGetTime();//Platform class
-			TimeStep timestep = time - m_LastFrameTime; 
+			Timestep timestep = time - m_LastFrameTime; 
 			m_LastFrameTime = time;
 			if(!m_Minimized)
 			{

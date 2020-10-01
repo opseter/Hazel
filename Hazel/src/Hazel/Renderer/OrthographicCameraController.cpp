@@ -14,7 +14,7 @@ namespace Hazel{
 
 
 
-	void OrthographicCameraController::OnUpdate(TimeStep ts)
+	void OrthographicCameraController::OnUpdate(Timestep ts)
 	{
 		if (Input::IsKeyPressed(HZ_KEY_A))
 		{

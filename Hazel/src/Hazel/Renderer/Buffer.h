@@ -65,8 +65,8 @@ namespace Hazel{
 		{
 			CalculateOffsetsAndStride();
 		}
-		inline const std::vector<BufferElement>& GelElements() const { return m_Elements; }
-		inline const uint32_t GetStride()const { return m_Stride; }
+		const std::vector<BufferElement>& GelElements() const { return m_Elements; }
+		const uint32_t GetStride()const { return m_Stride; }
 
 		std::vector<BufferElement>::iterator begin() { return m_Elements.begin(); }
 		std::vector<BufferElement>::iterator end() { return m_Elements.end(); }
@@ -101,6 +101,9 @@ namespace Hazel{
 		virtual void SetLayout(const BufferLayout& layout) = 0;
 		virtual const BufferLayout& GetLayout()const = 0;
 
+		virtual void SetData(const void* data, uint32_t size) = 0;
+
+		static Ref<VertexBuffer> Create(uint32_t size);
 		static Ref<VertexBuffer> Create(float* vertices, uint32_t size);
 	};
 
@@ -112,7 +115,7 @@ namespace Hazel{
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
-		static Ref<IndexBuffer> Create(unsigned int* indices, uint32_t size);
+		static Ref<IndexBuffer> Create(unsigned int* indices, uint32_t count);
 	};
 
 }

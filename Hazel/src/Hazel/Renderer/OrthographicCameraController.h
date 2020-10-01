@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Hazel/Renderer/OrthographicCamera.h"
-#include "Hazel/Core/TimeStep.h"
+#include "Hazel/Core/Timestep.h"
 
 
 #include"Hazel/Events/MouseEvent.h"
@@ -14,7 +14,7 @@ namespace Hazel{
 	public:
 		OrthographicCameraController(float aspectRatio,bool rotation = false);
 
-		void OnUpdate(TimeStep ts);
+		void OnUpdate(Timestep ts);
 		void OnEvent(Event& e);
 
 		OrthographicCamera& GetCamera() { return m_Camera; }
