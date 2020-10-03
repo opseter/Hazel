@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core.h"
+#include "Base.h"
 
 #include "Window.h"
 #include "Hazel/Core/LayerStack.h"
@@ -33,6 +33,8 @@ namespace Hazel {
 
 		Window& GetWindow() { return *m_Window; }
 
+		void Close();
+
 		static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
@@ -44,7 +46,6 @@ namespace Hazel {
 		bool m_Running = true;
 		bool m_Minimized = false;
 		LayerStack m_LayerStack;
-
 
 		float m_LastFrameTime = 0.0f;
 		
